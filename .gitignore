@@ -1,2 +1,5 @@
 *_core*/*
 !*_core*/*_core.ngc
+
+*.log
+*.autosave
