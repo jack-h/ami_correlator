@@ -41,15 +41,16 @@ function sb_cross_mult_core_config(this_block)
     % do input type checking, dynamic output type and generic setup in this code block.
 
     if (this_block.port('din0').width ~= 64);
-      this_block.setError('Input data type for port "din0" must have width=64.');
+      this_block.setError(['Input data type for port "din0" must have width=64.','actual width is',num2str(this_block.port('din0').width)]);
     end
 
     if (this_block.port('din1').width ~= 64);
-      this_block.setError('Input data type for port "din1" must have width=64.');
+      this_block.setError(['Input data type for port "din1" must have width=64.','actual width is',num2str(this_block.port('din1').width)]);
     end
 
     if (this_block.port('sync_in').width ~= 1);
-      this_block.setError('Input data type for port "sync_in" must have width=1.');
+      this_block.setError(['Input data type for port "sync_in" must have width=1.','actual width is',num2str(this_block.port('sync_in').width)]);
+
     end
 
     this_block.port('sync_in').useHDLVector(false);

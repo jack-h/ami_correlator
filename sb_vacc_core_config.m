@@ -17,10 +17,11 @@ function sb_vacc_core_config(this_block)
   %   if it  doesn't, then comment out the following line:
   this_block.tagAsCombinational;
 
+  this_block.addSimulinkInport('sync_in');
   this_block.addSimulinkInport('din00');
   this_block.addSimulinkInport('din01');
   this_block.addSimulinkInport('din11');
-  this_block.addSimulinkInport('sync_in');
+
 
   this_block.addSimulinkOutport('dout00');
   this_block.addSimulinkOutport('dout01');
