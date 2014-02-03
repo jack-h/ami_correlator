@@ -20,12 +20,6 @@ function fft_core_config(this_block)
   this_block.addSimulinkInport('sync');
   this_block.addSimulinkInport('i0');
   this_block.addSimulinkInport('i1');
-  this_block.addSimulinkInport('i10');
-  this_block.addSimulinkInport('i11');
-  this_block.addSimulinkInport('i12');
-  this_block.addSimulinkInport('i13');
-  this_block.addSimulinkInport('i14');
-  this_block.addSimulinkInport('i15');
   this_block.addSimulinkInport('i2');
   this_block.addSimulinkInport('i3');
   this_block.addSimulinkInport('i4');
@@ -34,6 +28,12 @@ function fft_core_config(this_block)
   this_block.addSimulinkInport('i7');
   this_block.addSimulinkInport('i8');
   this_block.addSimulinkInport('i9');
+  this_block.addSimulinkInport('i10');
+  this_block.addSimulinkInport('i11');
+  this_block.addSimulinkInport('i12');
+  this_block.addSimulinkInport('i13');
+  this_block.addSimulinkInport('i14');
+  this_block.addSimulinkInport('i15');
 
   this_block.addSimulinkOutport('sync_out');
   this_block.addSimulinkOutport('q0');
