@@ -1,0 +1,140 @@
+#DELAY CONSTRAINTS
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/delay_0" AREA_GROUP = "pblock_am_fx_tmng_x0_dly_0";
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_0" RANGE=SLICE_X78Y159:SLICE_X83Y239;
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_0" RANGE=RAMB18_X6Y64:RAMB18_X6Y95;
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_0" RANGE=RAMB36_X6Y32:RAMB36_X6Y47;
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/delay_1" AREA_GROUP = "pblock_am_fx_tmng_x0_dly_1";
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_1" RANGE=SLICE_X4Y240:SLICE_X9Y319;
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_1" RANGE=RAMB18_X0Y96:RAMB18_X0Y127;
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_1" RANGE=RAMB36_X0Y48:RAMB36_X0Y63;
+
+#FIR CONSTRAINTS
+
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fir_0" AREA_GROUP = "pblock_am_fx_tmng_x0_fr_0";
+AREA_GROUP "pblock_am_fx_tmng_x0_fr_0" RANGE=DSP48_X0Y64:DSP48_X6Y95;
+AREA_GROUP "pblock_am_fx_tmng_x0_fr_0" RANGE=RAMB18_X0Y64:RAMB18_X5Y95;
+AREA_GROUP "pblock_am_fx_tmng_x0_fr_0" RANGE=RAMB36_X0Y32:RAMB36_X5Y47;
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fir_1" AREA_GROUP = "pblock_am_fx_tmng_x0_fr_1";
+AREA_GROUP "pblock_am_fx_tmng_x0_fr_1" RANGE=DSP48_X0Y96:DSP48_X6Y127;
+AREA_GROUP "pblock_am_fx_tmng_x0_fr_1" RANGE=RAMB18_X1Y96:RAMB18_X5Y127;
+AREA_GROUP "pblock_am_fx_tmng_x0_fr_1" RANGE=RAMB36_X1Y48:RAMB36_X5Y63;
+
+
+#FFT0
+
+AREA_GROUP "fft0_stage1" RANGE=DSP48_X0Y32:DSP48_X0Y63;
+AREA_GROUP "fft0_stage1" RANGE=RAMB18_X0Y32:RAMB18_X0Y63;
+AREA_GROUP "fft0_stage1" RANGE=RAMB36_X0Y16:RAMB36_X0Y31;
+
+AREA_GROUP "fft0_stage2" RANGE=DSP48_X0Y24:DSP48_X1Y63;
+AREA_GROUP "fft0_stage2" RANGE=RAMB18_X1Y24:RAMB18_X2Y63;
+AREA_GROUP "fft0_stage2" RANGE=RAMB36_X1Y12:RAMB36_X2Y31;
+
+AREA_GROUP "fft0_laststages" RANGE=DSP48_X2Y18:DSP48_X3Y63;
+AREA_GROUP "fft0_laststages" RANGE=RAMB18_X2Y18:RAMB18_X3Y63;
+AREA_GROUP "fft0_laststages" RANGE=RAMB36_X2Y9:RAMB36_X3Y31;
+
+AREA_GROUP "fft0_direct" RANGE=DSP48_X3Y0:DSP48_X6Y63;
+AREA_GROUP "fft0_direct" RANGE=RAMB18_X3Y0:RAMB18_X5Y63;
+AREA_GROUP "fft0_direct" RANGE=RAMB36_X3Y0:RAMB36_X5Y31;
+
+
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_1*" AREA_GROUP = "fft0_stage1";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_2*" AREA_GROUP = "fft0_stage1";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_3*" AREA_GROUP = "fft0_stage2";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_4*" AREA_GROUP = "fft0_stage2";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_5*" AREA_GROUP = "fft0_stage2";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_6*" AREA_GROUP = "fft0_laststages";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_7*" AREA_GROUP = "fft0_laststages";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_8*" AREA_GROUP = "fft0_laststages";
+
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/bi_real_unscr_4x*" AREA_GROUP = "fft0_laststages";
+
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_direct*" AREA_GROUP = "fft0_direct";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core0/fft_wideband_real_??????????/fft_unscrambler*" AREA_GROUP = "fft0_direct";
+
+#FFT 1
+
+AREA_GROUP "fft1_stage1" RANGE=DSP48_X7Y98:DSP48_X7Y127;
+AREA_GROUP "fft1_stage1" RANGE=RAMB18_X7Y98:RAMB18_X7Y127;
+AREA_GROUP "fft1_stage1" RANGE=RAMB36_X7Y49:RAMB36_X7Y63;
+
+AREA_GROUP "fft1_stage2" RANGE=DSP48_X7Y98:DSP48_X7Y127;
+AREA_GROUP "fft1_stage2" RANGE=RAMB18_X7Y98:RAMB18_X7Y127;
+AREA_GROUP "fft1_stage2" RANGE=RAMB36_X7Y49:RAMB36_X7Y63;
+
+AREA_GROUP "fft1_stage3" RANGE=DSP48_X7Y98:DSP48_X7Y127;
+AREA_GROUP "fft1_stage3" RANGE=RAMB18_X8Y98:RAMB18_X8Y127;
+AREA_GROUP "fft1_stage3" RANGE=RAMB36_X8Y49:RAMB36_X8Y63;
+
+AREA_GROUP "fft1_stage4" RANGE=DSP48_X8Y92:DSP48_X8Y135;
+AREA_GROUP "fft1_stage4" RANGE=RAMB18_X8Y92:RAMB18_X8Y135;
+AREA_GROUP "fft1_stage4" RANGE=RAMB36_X8Y46:RAMB36_X8Y67;
+
+AREA_GROUP "fft1_stage5" RANGE=DSP48_X8Y88:DSP48_X9Y141;
+AREA_GROUP "fft1_stage5" RANGE=RAMB18_X9Y88:RAMB18_X9Y141;
+AREA_GROUP "fft1_stage5" RANGE=RAMB36_X9Y44:RAMB36_X9Y70;
+
+AREA_GROUP "fft1_laststages" RANGE=DSP48_X9Y88:DSP48_X10Y141;
+AREA_GROUP "fft1_laststages" RANGE=RAMB18_X9Y88:RAMB18_X10Y141;
+AREA_GROUP "fft1_laststages" RANGE=RAMB36_X9Y44:RAMB36_X10Y70;
+
+AREA_GROUP "fft1_direct" RANGE=DSP48_X10Y88:DSP48_X13Y141;
+AREA_GROUP "fft1_direct" RANGE=RAMB18_X11Y88:RAMB18_X13Y141;
+AREA_GROUP "fft1_direct" RANGE=RAMB36_X11Y44:RAMB36_X13Y70;
+
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_1*" AREA_GROUP = "fft1_stage1";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_2*" AREA_GROUP = "fft1_stage3";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_3*" AREA_GROUP = "fft1_stage3";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_4*" AREA_GROUP = "fft1_stage4";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_5*" AREA_GROUP = "fft1_stage5";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_6*" AREA_GROUP = "fft1_stage5";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_7*" AREA_GROUP = "fft1_laststages";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/biplex_core_??????????/fft_stage_8*" AREA_GROUP = "fft1_laststages";
+
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/bi_real_unscr_4x*" AREA_GROUP = "fft1_laststages";
+
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_direct*" AREA_GROUP = "fft1_direct";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_unscrambler**" AREA_GROUP = "fft1_direct";
+
+#INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/bi_real_unscr_4x_??????????/mirror_spectrum_??????????/counter*" MAX_FANOUT=1;
+#NET "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/bi_real_unscr_4x_??????????/mirror_spectrum_??????????/relational_op_net" MAX_FANOUT=1;
+
+INST "*do_not_fan_out*" MAX_FANOUT=1;
+
+AREA_GROUP "fine_del1" RANGE=DSP48_X11Y72:DSP48_X13Y87;
+AREA_GROUP "fine_del1" RANGE=RAMB18_X11Y72:RAMB18_X13Y87;
+AREA_GROUP "fine_del1" RANGE=RAMB36_X11Y36:RAMB36_X13Y43;
+AREA_GROUP "quantizer1" RANGE=DSP48_X7Y72:DSP48_X10Y87;
+AREA_GROUP "quantizer1" RANGE=RAMB18_X7Y72:RAMB18_X10Y87;
+AREA_GROUP "quantizer1" RANGE=RAMB36_X7Y36:RAMB36_X10Y43;
+AREA_GROUP "fine_del0" RANGE=DSP48_X7Y16:DSP48_X9Y31;
+AREA_GROUP "fine_del0" RANGE=RAMB18_X7Y16:RAMB18_X9Y31;
+AREA_GROUP "fine_del0" RANGE=RAMB36_X7Y8:RAMB36_X9Y15;
+AREA_GROUP "quantizer0" RANGE=DSP48_X10Y16:DSP48_X13Y31;
+AREA_GROUP "quantizer0" RANGE=RAMB18_X10Y16:RAMB18_X13Y31;
+AREA_GROUP "quantizer0" RANGE=RAMB36_X10Y8:RAMB36_X13Y15;
+AREA_GROUP "cross_mult" RANGE=DSP48_X7Y48:DSP48_X11Y63;
+AREA_GROUP "cross_mult" RANGE=RAMB18_X8Y48:RAMB18_X10Y63;
+AREA_GROUP "cross_mult" RANGE=RAMB36_X8Y24:RAMB36_X10Y31;
+AREA_GROUP "vacc_00" RANGE=DSP48_X8Y42:DSP48_X8Y45;
+AREA_GROUP "vacc_00" RANGE=RAMB18_X8Y42:RAMB18_X8Y45;
+AREA_GROUP "vacc_00" RANGE=RAMB36_X8Y21:RAMB36_X8Y22;
+AREA_GROUP "vacc_11" RANGE=DSP48_X9Y42:DSP48_X9Y45;
+AREA_GROUP "vacc_11" RANGE=RAMB18_X9Y42:RAMB18_X9Y45;
+AREA_GROUP "vacc_11" RANGE=RAMB36_X9Y21:RAMB36_X9Y22;
+AREA_GROUP "vacc_01" RANGE=DSP48_X10Y42:DSP48_X11Y45;
+AREA_GROUP "vacc_01" RANGE=RAMB18_X10Y42:RAMB18_X11Y45;
+AREA_GROUP "vacc_01" RANGE=RAMB36_X10Y21:RAMB36_X11Y22;
+
+#INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/quantizer0" AREA_GROUP="quantizer0";
+#INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/quantizer1" AREA_GROUP="quantizer1";
+
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fine_del0" AREA_GROUP="fine_del0";
+INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/fine_del1" AREA_GROUP="fine_del1";
+
+#INST "ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_XSG_core_config/ami_fx_sbl_wide_x0/cross_mult" AREA_GROUP="cross_mult";
+#INST "*vacc00*" AREA_GROUP="vacc_00";
+#INST "*vacc01*" AREA_GROUP="vacc_01";
+#INST "*vacc11*" AREA_GROUP="vacc_11";
+
