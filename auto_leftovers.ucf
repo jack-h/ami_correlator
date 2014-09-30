@@ -1,0 +1,56 @@
+#DELAY CONSTRAINTS
+INST "*_XSG_core_config/*_XSG_core_config/*_x0/delay_0_??????????/delay_core_x0" AREA_GROUP = "pblock_am_fx_tmng_x0_dly_0";
+#AREA_GROUP "pblock_am_fx_tmng_x0_dly_0" RANGE=SLICE_X78Y159:SLICE_X83Y239;
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_0" RANGE=RAMB18_X6Y80:RAMB18_X6Y111;
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_0" RANGE=RAMB36_X6Y40:RAMB36_X6Y55;
+INST "*_XSG_core_config/*_XSG_core_config/*_x0/delay_1_??????????/delay_core_x0" AREA_GROUP = "pblock_am_fx_tmng_x0_dly_1";
+#AREA_GROUP "pblock_am_fx_tmng_x0_dly_1" RANGE=SLICE_X4Y240:SLICE_X9Y319;
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_1" RANGE=RAMB18_X0Y112:RAMB18_X0Y143;
+AREA_GROUP "pblock_am_fx_tmng_x0_dly_1" RANGE=RAMB36_X0Y56:RAMB36_X0Y71;
+
+
+INST "*do_not_fan_out*" MAX_FANOUT=1;
+
+
+#AREA_GROUP "quantizer1" RANGE=DSP48_X7Y72:DSP48_X10Y87;
+AREA_GROUP "quantizer1" RANGE=DSP48_X7Y56:DSP48_X10Y71;
+#AREA_GROUP "quantizer1" RANGE=RAMB18_X7Y72:RAMB18_X10Y87;
+AREA_GROUP "quantizer1" RANGE=RAMB18_X7Y56:RAMB18_X10Y71;
+#AREA_GROUP "quantizer1" RANGE=RAMB36_X7Y36:RAMB36_X10Y43;
+AREA_GROUP "quantizer1" RANGE=RAMB36_X7Y28:RAMB36_X10Y35;
+
+#AREA_GROUP "quantizer0" RANGE=DSP48_X10Y16:DSP48_X13Y31;
+AREA_GROUP "quantizer0" RANGE=DSP48_X10Y0:DSP48_X13Y15;
+#AREA_GROUP "quantizer0" RANGE=RAMB18_X10Y16:RAMB18_X13Y31;
+AREA_GROUP "quantizer0" RANGE=RAMB18_X10Y0:RAMB18_X13Y15;
+#AREA_GROUP "quantizer0" RANGE=RAMB36_X10Y8:RAMB36_X13Y15;
+AREA_GROUP "quantizer0" RANGE=RAMB36_X10Y0:RAMB36_X13Y7;
+
+#AREA_GROUP "cross_mult" RANGE=DSP48_X7Y48:DSP48_X11Y63;
+AREA_GROUP "cross_mult" RANGE=DSP48_X7Y32:DSP48_X11Y47;
+#AREA_GROUP "cross_mult" RANGE=RAMB18_X8Y48:RAMB18_X10Y63;
+AREA_GROUP "cross_mult" RANGE=RAMB18_X8Y32:RAMB18_X10Y47;
+#AREA_GROUP "cross_mult" RANGE=RAMB36_X8Y24:RAMB36_X10Y31;
+AREA_GROUP "cross_mult" RANGE=RAMB36_X8Y16:RAMB36_X10Y23;
+
+AREA_GROUP "vacc_00" RANGE=DSP48_X8Y42:DSP48_X8Y45;
+AREA_GROUP "vacc_00" RANGE=RAMB18_X8Y42:RAMB18_X8Y45;
+AREA_GROUP "vacc_00" RANGE=RAMB36_X8Y21:RAMB36_X8Y22;
+AREA_GROUP "vacc_11" RANGE=DSP48_X9Y42:DSP48_X9Y45;
+AREA_GROUP "vacc_11" RANGE=RAMB18_X9Y42:RAMB18_X9Y45;
+AREA_GROUP "vacc_11" RANGE=RAMB36_X9Y21:RAMB36_X9Y22;
+AREA_GROUP "vacc_01" RANGE=DSP48_X10Y42:DSP48_X11Y45;
+AREA_GROUP "vacc_01" RANGE=RAMB18_X10Y42:RAMB18_X11Y45;
+AREA_GROUP "vacc_01" RANGE=RAMB36_X10Y21:RAMB36_X11Y22;
+
+INST "ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_x0/quantizer0" AREA_GROUP="quantizer0";
+INST "ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_x0/quantizer1" AREA_GROUP="quantizer1";
+
+#INST "ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_x0/fine_del0" AREA_GROUP="fine_del0";
+#INST "ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_x0/fine_del1" AREA_GROUP="fine_del1";
+
+INST "ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_XSG_core_config/ami_fx_sbl_nofs_x0/cross_mult" AREA_GROUP="cross_mult";
+#INST "*vacc00*" AREA_GROUP="vacc_00";
+#INST "*vacc01*" AREA_GROUP="vacc_01";
+#INST "*vacc11*" AREA_GROUP="vacc_11";
+

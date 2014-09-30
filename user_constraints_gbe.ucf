@@ -51,7 +51,7 @@ INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_co
 INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core0/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/bi_real_unscr_4x*" AREA_GROUP = "fft0_laststages";
 
 INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core0/fft_wideband_real_??????????/fft_direct*" AREA_GROUP = "fft0_direct";
-INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core0/fft_wideband_real_??????????/fft_unscrambler*" AREA_GROUP = "fft0_direct";
+#INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core0/fft_wideband_real_??????????/fft_unscrambler*" AREA_GROUP = "fft0_direct";
 
 #FFT 1
 
@@ -95,12 +95,12 @@ INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_co
 INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/bi_real_unscr_4x*" AREA_GROUP = "fft1_laststages";
 
 INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core1/fft_wideband_real_??????????/fft_direct*" AREA_GROUP = "fft1_direct";
-INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core1/fft_wideband_real_??????????/fft_unscrambler**" AREA_GROUP = "fft1_direct";
+#INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core1/fft_wideband_real_??????????/fft_unscrambler**" AREA_GROUP = "fft1_direct";
 
 #INST "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/bi_real_unscr_4x_??????????/mirror_spectrum_??????????/counter*" MAX_FANOUT=1;
 #NET "ami_fx_gbe_XSG_core_config/ami_fx_gbe_XSG_core_config/ami_fx_gbe_x0/fft_core1/fft_wideband_real_??????????/fft_biplex_real_4x_??????????/bi_real_unscr_4x_??????????/mirror_spectrum_??????????/relational_op_net" MAX_FANOUT=1;
 
-INST "*do_not_fan_out*" MAX_FANOUT=1;
+INST "*do_not_fan_out*" MAX_FANOUT=2;
 
 AREA_GROUP "fine_del1" RANGE=DSP48_X11Y72:DSP48_X13Y87;
 AREA_GROUP "fine_del1" RANGE=RAMB18_X11Y72:RAMB18_X13Y87;
