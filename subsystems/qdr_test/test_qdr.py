@@ -4,7 +4,7 @@
 Calibrate a QDR
 '''
 
-import corr, time, struct, sys, logging, socket
+import corr, time, struct, sys, logging, socket, numpy
 
 CAL_DATA = [
                 [0xAAAAAAAA,0x55555555,0xAAAAAAAA,0x55555555,0xAAAAAAAA,0x55555555,
@@ -48,6 +48,7 @@ class Qdr(object):
         """
         self.parent = parent
         self.which_qdr = name
+        self.name = name
         self.memory = self.which_qdr + '_memory'
         self.control_mem = self.which_qdr + '_ctrl'
 
@@ -95,53 +96,53 @@ class Qdr(object):
 
     def qdr_reset(self):
         "Resets the QDR and the IO delays (sets all taps=0)."
-        self.parent.write_int(self.control_mem, 1, blindwrite=True,word_offset=0)
-        self.parent.write_int(self.control_mem, 0, blindwrite=True,word_offset=0)
+        self.parent.write_int(self.control_mem, 1, blindwrite=True,offset=0)
+        self.parent.write_int(self.control_mem, 0, blindwrite=True,offset=0)
 
 
     def qdr_delay_out_step(self,bitmask,step):
         "Steps all bits in bitmask by 'step' number of taps."
         if step >0:
-            self.parent.write_int(self.control_mem,(0xffffffff),blindwrite=True,word_offset=7)
+            self.parent.write_int(self.control_mem,(0xffffffff),blindwrite=True,offset=7)
         elif step <0:
-            self.parent.write_int(self.control_mem,(0),blindwrite=True,word_offset=7)
+            self.parent.write_int(self.control_mem,(0),blindwrite=True,offset=7)
         else:
             return
         for i in range(abs(step)):
-            self.parent.write_int(self.control_mem,0,blindwrite=True,word_offset=6)
-            self.parent.write_int(self.control_mem,0,blindwrite=True,word_offset=5)
-            self.parent.write_int(self.control_mem,(0xffffffff&bitmask),blindwrite=True,word_offset=6)
-            self.parent.write_int(self.control_mem,((0xf)&(bitmask>>32))<<4,blindwrite=True,word_offset=5)
+            self.parent.write_int(self.control_mem,0,blindwrite=True,offset=6)
+            self.parent.write_int(self.control_mem,0,blindwrite=True,offset=5)
+            self.parent.write_int(self.control_mem,(0xffffffff&bitmask),blindwrite=True,offset=6)
+            self.parent.write_int(self.control_mem,((0xf)&(bitmask>>32))<<4,blindwrite=True,offset=5)
 
     def qdr_delay_clk_step(self,step):
         "Steps the output clock by 'step' amount."
         if step >0:
-            self.parent.write_int(self.control_mem,(0xffffffff),blindwrite=True,word_offset=7)
+            self.parent.write_int(self.control_mem,(0xffffffff),blindwrite=True,offset=7)
         elif step <0:
-            self.parent.write_int(self.control_mem,(0),blindwrite=True,word_offset=7)
+            self.parent.write_int(self.control_mem,(0),blindwrite=True,offset=7)
         else:
             return
         for i in range(abs(step)):
-            self.parent.write_int(self.control_mem,0,blindwrite=True,word_offset=5)
-            self.parent.write_int(self.control_mem,(1<<8),blindwrite=True,word_offset=5)
+            self.parent.write_int(self.control_mem,0,blindwrite=True,offset=5)
+            self.parent.write_int(self.control_mem,(1<<8),blindwrite=True,offset=5)
 
     def qdr_delay_in_step(self,bitmask,step):
         "Steps all bits in bitmask by 'step' number of taps."
         if step >0:
-            self.parent.write_int(self.control_mem,(0xffffffff),blindwrite=True,word_offset=7)
+            self.parent.write_int(self.control_mem,(0xffffffff),blindwrite=True,offset=7)
         elif step <0:
-            self.parent.write_int(self.control_mem,(0),blindwrite=True,word_offset=7)
+            self.parent.write_int(self.control_mem,(0),blindwrite=True,offset=7)
         else:
             return
         for i in range(abs(step)):
-            self.parent.write_int(self.control_mem,0,blindwrite=True,word_offset=4)
-            self.parent.write_int(self.control_mem,0,blindwrite=True,word_offset=5)
-            self.parent.write_int(self.control_mem,(0xffffffff&bitmask),blindwrite=True,word_offset=4)
-            self.parent.write_int(self.control_mem,((0xf)&(bitmask>>32)),blindwrite=True,word_offset=5)
+            self.parent.write_int(self.control_mem,0,blindwrite=True,offset=4)
+            self.parent.write_int(self.control_mem,0,blindwrite=True,offset=5)
+            self.parent.write_int(self.control_mem,(0xffffffff&bitmask),blindwrite=True,offset=4)
+            self.parent.write_int(self.control_mem,((0xf)&(bitmask>>32)),blindwrite=True,offset=5)
 
     def qdr_delay_clk_get(self):
         "Gets the current value for the clk delay."
-        raw=self.parent.read_uint(self.control_mem, word_offset=8)
+        raw=self.parent.read_uint(self.control_mem, offset=8)
         if (raw&0x1f) != ((raw&(0x1f<<5))>>5):
             raise RuntimeError("Counter values not the same -- logic error! Got back %i."%raw)
         return raw&(0x1f)
@@ -292,6 +293,7 @@ class Qdr(object):
                 return False
 
 
+boffile = 'qdr_test.bof'
 if __name__ == '__main__':
     from optparse import OptionParser
 
@@ -301,7 +303,11 @@ if __name__ == '__main__':
     p.add_option('-p', '--noprogram', dest='noprogram', action='store_true',
         help='Don\'t reprogram the self.fpga.')
     p.add_option('-n', '--nqdr', dest='nqdr', type='int', default=0,
-        help='Number of QDR to test -- 0-3')  
+        help='Number of QDR on roach2 -- 0-3"')  
+    p.add_option('-b', '--boffile', dest='bof', type='str', default=boffile,
+        help='Specify the bof file to load')  
+    p.add_option('-v', '--verbosity', dest='verbosity', type='int', default=1,
+        help='Level of verbosity')  
     opts, args = p.parse_args(sys.argv[1:])
 
     if args==[]:
@@ -322,10 +328,22 @@ if __name__ == '__main__':
     fpga = corr.katcp_wrapper.FpgaClient(roach, logger=logger)
     time.sleep(1)
 
-    name = 'qdr%d'%nqdr
+    if not opts.noprogram:
+        print '------------------------'
+        print 'Programming FPGA...',
+        sys.stdout.flush()
+        fpga.progdev(boffile)
+        time.sleep(0.1)
+        print 'ok'
+
+    print fpga.listdev()
+
+    print 'Board clock:', fpga.est_brd_clk()
+
+    name = 'qdr%d'%opts.nqdr
     qdr = Qdr(fpga, name, 0, 0, '', 0)
 
-    qdr.qdr_cal(fail_hard=True, verbosity=1)
+    qdr.qdr_cal(fail_hard=True, verbosity=opts.verbosity)
     exit()
 
 
