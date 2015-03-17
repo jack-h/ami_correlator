@@ -26,18 +26,30 @@ function auto_core_config(this_block)
   this_block.addSimulinkOutport('dout1');
   this_block.addSimulinkOutport('dout2');
   this_block.addSimulinkOutport('dout3');
+  this_block.addSimulinkOutport('dout4');
+  this_block.addSimulinkOutport('dout5');
+  this_block.addSimulinkOutport('dout6');
+  this_block.addSimulinkOutport('dout7');
   this_block.addSimulinkOutport('vld');
   this_block.addSimulinkOutport('sync_out');
 
 
   dout0_port = this_block.port('dout0');
-  dout0_port.setType('UFix_128_0');
+  dout0_port.setType('Fix_46_0');
   dout1_port = this_block.port('dout1');
-  dout1_port.setType('UFix_128_0');
+  dout1_port.setType('Fix_46_0');
   dout2_port = this_block.port('dout2');
-  dout2_port.setType('UFix_128_0');
+  dout2_port.setType('Fix_46_0');
   dout3_port = this_block.port('dout3');
-  dout3_port.setType('UFix_128_0');
+  dout3_port.setType('Fix_46_0');
+  dout4_port = this_block.port('dout4');
+  dout4_port.setType('Fix_46_0');
+  dout5_port = this_block.port('dout5');
+  dout5_port.setType('Fix_46_0');
+  dout6_port = this_block.port('dout6');
+  dout6_port.setType('Fix_46_0');
+  dout7_port = this_block.port('dout7');
+  dout7_port.setType('Fix_46_0');
   sync_out_port = this_block.port('sync_out');
   sync_out_port.setType('Bool');
   sync_out_port.useHDLVector(false);

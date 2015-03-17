@@ -9,10 +9,14 @@ entity auto_core is
     din: in std_logic_vector(287 downto 0); 
     noise_on: in std_logic; 
     sync: in std_logic; 
-    dout0: out std_logic_vector(127 downto 0); 
-    dout1: out std_logic_vector(127 downto 0); 
-    dout2: out std_logic_vector(127 downto 0); 
-    dout3: out std_logic_vector(127 downto 0); 
+    dout0: out std_logic_vector(45 downto 0); 
+    dout1: out std_logic_vector(45 downto 0); 
+    dout2: out std_logic_vector(45 downto 0); 
+    dout3: out std_logic_vector(45 downto 0); 
+    dout4: out std_logic_vector(45 downto 0); 
+    dout5: out std_logic_vector(45 downto 0); 
+    dout6: out std_logic_vector(45 downto 0); 
+    dout7: out std_logic_vector(45 downto 0); 
     sync_out: out std_logic; 
     vld: out std_logic
   );

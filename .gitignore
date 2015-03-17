@@ -1,5 +1,22 @@
 *_core*/*
-!*_core*/*_core.ngc
+!*_core*/*_core*.ngc
+
+*/XPS_ROACH2_base/*
+!*/XPS_ROACH2_base/implementation/system.par
+!*/XPS_ROACH2_base/implementation/system.twr
+!*/XPS_ROACH2_base/implementation/system.twx
+
+*sb_add_tree*/*
+!sb_add_tree/sb_add_tree.ngc
 
 *.log
 *.autosave
+
+#fpga files I don't use
+*.bit
+*.fpg
+*.info
+*.bof
+
+#simulink backup files
+*.slx.*
