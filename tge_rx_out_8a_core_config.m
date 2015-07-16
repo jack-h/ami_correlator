@@ -28,7 +28,7 @@ function tge_rx_out_8a_core_config(this_block)
   link_cnt_port = this_block.port('link_cnt');
   link_cnt_port.setType('UFix_2_0');
   rd_addr_port = this_block.port('rd_addr');
-  rd_addr_port.setType('UFix_13_0');
+  rd_addr_port.setType('UFix_12_0');
   rd_en0_port = this_block.port('rd_en0');
   rd_en0_port.setType('Bool');
   rd_en0_port.useHDLVector(false);

@@ -46,7 +46,7 @@ function tge_rx_8a_core_config(this_block)
   dout_port = this_block.port('dout');
   dout_port.setType('UFix_128_0');
   lb_bad_addr_port = this_block.port('lb_bad_addr');
-  lb_bad_addr_port.setType('UFix_13_0');
+  lb_bad_addr_port.setType('UFix_12_0');
   lb_err_port = this_block.port('lb_err');
   lb_err_port.setType('Bool');
   lb_err_port.useHDLVector(false);
@@ -64,7 +64,7 @@ function tge_rx_8a_core_config(this_block)
   sync_out_port.setType('Bool');
   sync_out_port.useHDLVector(false);
   tge_bad_addr_port = this_block.port('tge_bad_addr');
-  tge_bad_addr_port.setType('UFix_13_0');
+  tge_bad_addr_port.setType('UFix_12_0');
   tge_err_port = this_block.port('tge_err');
   tge_err_port.setType('Bool');
   tge_err_port.useHDLVector(false);
@@ -118,8 +118,8 @@ function tge_rx_8a_core_config(this_block)
 
     this_block.port('lb_vld').useHDLVector(false);
 
-    if (this_block.port('rd_addr').width ~= 13);
-      this_block.setError('Input data type for port "rd_addr" must have width=13.');
+    if (this_block.port('rd_addr').width ~= 12);
+      this_block.setError('Input data type for port "rd_addr" must have width=12.');
     end
 
     if (this_block.port('rd_en').width ~= 1);
