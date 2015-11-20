@@ -20,3 +20,11 @@
 
 #simulink backup files
 *.slx.*
+
+#build files
+amila/cache_dir/
+amila/core_info.m
+amila/sysgen/
+amisa/cache_dir/
+amisa/core_info.m
+amisa/sysgen/
